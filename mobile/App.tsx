@@ -10,7 +10,10 @@ import { ThemeProvider } from 'styled-components';
 import theme from './src/theme';
 
 import { Loading } from '@components/Loading';
+
 import { Groups } from '@screens/Groups';
+import { NewGroups } from '@screens/NewGroups';
+import { Players } from '@screens/Players';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
