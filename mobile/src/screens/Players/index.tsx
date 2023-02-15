@@ -6,21 +6,29 @@ import { Filter } from '@components/Filter';
 
 import { FlatList } from 'react-native';
 import { useState } from 'react';
+import { useRoute } from '@react-navigation/native';
 
 import * as S from './styles';
 import { EmptyList } from '@components/EmptyList';
 import { PlayerCard } from '@components/PlayerCard';
 import { Button } from '@components/Button';
 
+type RouteParams = {
+  group: string;
+};
+
 export function Players() {
   const [team, setTeam] = useState('Squad A');
   const [players, setPlayers] = useState([]);
+
+  const route = useRoute();
+  const { group } = route.params as RouteParams;
 
   return (
     <S.Container>
       <Header showBackButton />
       <Highlight
-        title="Squad"
+        title={group}
         subtitle="Add your partners and part the teams"
       />
       <S.Form>
