@@ -2,12 +2,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { PLAYER_COLLECTION } from '@storage/storageConfig';
 import { AppError } from '@utils/AppError';
 import { PlayerStorageDTO } from './PlayerStorageDTO';
+import { playersGetByGroup } from './playersGetByGroup';
 
-export async function playersGetByGroup(group: string) {
+export async function playersGetByGroupAndTeam(group: string, team: string) {
   try {
-    const storage = await AsyncStorage.getItem(`${PLAYER_COLLECTION}-${group}`);
+    const storage = await playersGetByGroup(group);
 
-    const players: PlayerStorageDTO[] = storage ? JSON.parse(storage) : [];
+    const players = storage.filter((player) => player.team === team);
 
     return players;
   } catch (error) {
