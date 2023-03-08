@@ -2,7 +2,7 @@
   Ignite Teams
 </h2>
 
-<p align="center">Groups administration mobile application developed with the Ignite course of Rocketseat.</p>
+<p align="center">Team disputes administration mobile application developed with the Ignite course of Rocketseat.</p>
 
 ## :gear: Installation
 
